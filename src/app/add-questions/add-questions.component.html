@@ -1,0 +1,128 @@
+<div class="wrapper">
+    <!-- Sidebar chat end-->
+    <div class="content-wrapper">
+       <!-- Container-fluid starts -->
+       <div class="container-fluid">
+
+          <!-- Header Starts -->
+          <div class="row">
+             <div class="col-sm-12 p-0">
+                <div class="main-header">
+                   <h4></h4>
+                   
+                </div>
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-sm-12">
+                <!-- Basic Table starts -->
+                <div class="card">
+                   <div class="card-header">
+                      <h5 class="card-header-text">Test Table</h5>
+                      <p>Add new  <button (click)="open(myModal)" type="button" class="btn btn-danger btn-icon waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="" data-original-title=".icofont-code-alt">
+                         <i class="icofont icofont-code-alt"></i>
+                     </button></p>
+                   </div>
+                   <div class="card-block">
+                      <div class="row">
+                         <div class="col-sm-12 table-responsive">
+                            <table class="table">
+                               <thead>
+                                  <tr>
+                                     <th>#</th>
+                                     <th>Questions</th>
+                                     <th></th>
+                                     <th> Add responses</th>
+                                     <th>Delete question</th>
+                                  </tr>
+                               </thead>
+                               <tbody *ngFor="let S of Questions">
+                                  <tr>
+                                     <td>1</td>
+                                     <td>{{S.Q._Question}} <br>
+                                       <a *ngFor="let R of S.R">
+                                          <p>{{R.responseData}} : {{R.responseState}}</p>
+                                       </a>
+                                     </td>
+                                     <td></td>
+                                     <td>
+                                       <button (click)="openR(Response,S.Q.questionId)" type="button" class="btn btn-primary btn-icon waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add test">
+                                        <i class="icofont icofont-bubble-right"></i>
+                                       </button>
+                                     </td>
+                                     <td>
+                                       <button (click)="DeleteQuestion(S.Q.questionId)" type="button" class="btn btn-primary btn-icon waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add test">
+                                          <i class="icofont">X</i>
+                                      </button>
+                                     </td>
+                                  </tr>
+                               </tbody>
+                            </table>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+
+             </div>
+       </div>
+    </div>
+ </div>
+
+
+  <modal #myModal>
+   <modal-header>
+       Add new test
+   </modal-header>
+
+   <modal-content>
+      <div class="modal-body">
+         <form [formGroup]="QuestionForm">
+           <div class="col-lg-12 form-group">
+             <h6>New question :</h6>
+             <input type="text" class="form-control text-center w-100" formControlName="_Question">
+           </div>
+         </form>
+       </div>
+   </modal-content>
+
+   <modal-footer>
+      <div class="modal-footer" (click)="AddQuestion()">
+         <button type="button" class="btn btn-outline-dark btn-primary" >Add</button>
+       </div>
+   </modal-footer>
+</modal>
+
+
+
+<modal #Response>
+   <modal-header>
+       Add new test
+   </modal-header>
+
+   <modal-content>
+      <div class="modal-body">
+         <form [formGroup]="ResponseForm">
+           <div class="col-lg-12 form-group">
+             <h6>Response :</h6>
+             <input type="text" class="form-control text-center w-100" formControlName="ResponseData">
+           </div>
+
+            <select class="form-control " id="exampleSelect1" formControlName="ResponseState">
+              <option value="true">true</option>
+              <option value="false">false</option>
+            </select>
+
+         </form>
+       </div>
+   </modal-content>
+
+   <modal-footer>
+      <div class="modal-footer" (click)="AddResponse()">
+         <button type="button" class="btn btn-outline-dark btn-primary" >Add</button>
+       </div>
+   </modal-footer>
+</modal>
+
+
+
+

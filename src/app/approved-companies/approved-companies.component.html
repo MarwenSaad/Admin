@@ -1,0 +1,56 @@
+<div class="content-wrapper">
+    <!-- Container-fluid starts -->
+    <!-- Main content starts -->
+    <div class="container-fluid">
+       <div class="row">
+          <div class="main-header">
+             <h4>Approved companies</h4>
+          </div>
+       </div>
+
+       <!-- 2-1 block start -->
+       <div class="row">
+          <div class="col-xl-12 col-lg-12">
+             <div class="card">
+                <div class="card-block">
+                   <div class="table-responsive">
+                      <table class="table m-b-0 photo-table">
+                         <thead>
+                            <tr class="text-uppercase">
+                               <th>Photo</th>
+                               <th>Name</th>
+                               <th>Completed</th>
+                               <th>Activities</th>
+                               <th>Location</th>
+                               <th>Cantact</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr *ngFor="let c of Approved" >
+                               <th type="submit" routerLink="/PublicProfile/{{c.companyId}}/{{c.role}}">
+                                  <img class="img-fluid img-circle" src="{{c.picture}}" alt="User">
+                               </th>
+                               <td>{{c.companyName}}
+                                  <p><i class="icofont icofont-clock-time"></i>Created 20.10.2016</p>
+                               </td>
+                               <td>
+                                  <span class="pie" style="display: none;">0.52/1.561</span><svg class="peity" height="30" width="30"><path d="M 15.000000000000002 0 A 15 15 0 0 1 28.00043211809656 22.482564048691025 L 15 15" fill="#2196F3"></path><path d="M 28.00043211809656 22.482564048691025 A 15 15 0 1 1 14.999999999999996 0 L 15 15" fill="#ccc"></path></svg>
+                               </td>
+                               <td>{{c.activityFiled}}</td>
+                               <td>{{c.location}}</td>
+                               <td  type="submit">&#9993;{{c.email}}</td>
+                            </tr>
+
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+
+       </div>
+       <!-- 2-1 block end -->
+    </div>
+    <!-- Main content ends -->
+    <!-- Container-fluid ends -->
+ </div>
